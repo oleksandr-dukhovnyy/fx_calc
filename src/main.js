@@ -24,7 +24,6 @@ Vue.filter( 'deleteNull', function ( value ){
   return value;
 });
 
-
 new Vue({
   render: h => h(App),
 }).$mount('#app');

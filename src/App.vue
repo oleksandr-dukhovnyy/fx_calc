@@ -12,6 +12,9 @@ export default {
   name: 'App',
   components: {
     Calc
+  },
+  mounted(){
+    document.querySelector( 'img' ).remove();
   }
 }
 </script>
