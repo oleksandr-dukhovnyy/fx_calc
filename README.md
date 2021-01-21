@@ -1,4 +1,4 @@
-# recreate
+# fx_calc
 
 ## Project setup
 ```
