@@ -1,7 +1,8 @@
 {
-  "name": "recreate",
-  "version": "0.1.0",
-  "private": true,
+  "name": "fx_calc",
+  "version": "2.1.0",
+  "private": false,
+  "author": "Aleksandr Dukhovnyy",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build"
