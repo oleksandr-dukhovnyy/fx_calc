@@ -1,5 +1,8 @@
-# fx_calc
+# Calculator for trader
 
+(vue.js, vue-cli, pwa, webpack)
+
+---
 ## Project setup
 ```
 npm install
