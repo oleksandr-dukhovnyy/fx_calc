@@ -5,7 +5,8 @@
   "author": "Aleksandr Dukhovnyy",
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build"
+    "build": "vue-cli-service build",
+    "serveWithCustomPort": "npm run serve --port 3000"
   },
   "dependencies": {
     "core-js": "^3.6.5",

@@ -25,5 +25,5 @@ Vue.filter( 'deleteNull', function ( value ){
 });
 
 new Vue({
-  render: h => h(App),
-}).$mount('#app');
+  render: h => h( App ),
+}).$mount( '#app' );

@@ -1,8 +1,18 @@
 <template>
   <div id="app">
-    <Calc />
+    <Calc
+      :showHeaderTexts="showHeaderTexts"
+    />
+    <!-- <span
+      @click="hardReset"
+      class="hard-reset"
+      :showHeaderTexts="showHeaderTexts"
+    >
+      hard reset
+    </span> -->
+
   </div>
-</template>
+</template> 
 
 
 <script>
@@ -13,8 +23,28 @@ export default {
   components: {
     Calc
   },
+  data(){
+    return {
+      showHeaderTexts: true
+    }
+  },
+  methods: {
+    hardReset(){
+      window.location.reload( true );
+    }
+  },
   mounted(){
-    document.querySelector( 'img' ).remove();
+
+    // remove host logo
+    setTimeout( () => {
+      let imgs = document.querySelectorAll( 'img' );
+      imgs.forEach( img => {
+        if( img.alt === 'www.000webhost.com' ){
+          img.remove();
+        }
+      });
+    }, 200 );
+    
   }
 }
 </script>
@@ -27,10 +57,16 @@ export default {
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   font-size: 15px;
-  letter-spacing: 0.7px;
+  letter-spacing: -0.1px;
 }
 html {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+.hideInput {
+  display: none;
+}
+.hard-reset {
+  opacity: 0.3;
 }
 </style>
