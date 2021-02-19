@@ -1,5 +1,8 @@
-# recreate
+# Calculator for trader
 
+(vue.js, vue-cli, pwa, webpack, google spreadsheet)
+
+---
 ## Project setup
 ```
 npm install
