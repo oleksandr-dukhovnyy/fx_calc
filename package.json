@@ -1,22 +1,28 @@
 {
   "name": "fx_calc",
-  "version": "2.1.0",
+  "version": "3.3.0",
   "private": false,
   "author": "Aleksandr Dukhovnyy",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "serveWithCustomPort": "npm run serve --port 3000"
+    "serveWithCustomPort": "vue-cli-service serve --port 3030"
   },
   "dependencies": {
     "core-js": "^3.6.5",
+    "element-ui": "^2.15.1",
     "register-service-worker": "^1.7.1",
-    "vue": "^2.6.11"
+    "vue": "^2.6.11",
+    "vuex": "^3.6.2"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^4.5.0",
     "@vue/cli-plugin-pwa": "^4.5.0",
     "@vue/cli-service": "^4.5.0",
+    "node-sass": "^5.0.0",
+    "sass": "^1.32.8",
+    "sass-loader": "^10.1.1",
+    "style-loader": "^2.0.0",
     "vue-template-compiler": "^2.6.11"
   },
   "browserslist": [

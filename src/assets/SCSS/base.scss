@@ -1,0 +1,200 @@
+$base-border-color: #ededed;
+
+input::placeholder {
+  color: black;
+}
+
+a {
+	color: #000;
+}
+
+.p {
+	&-right {
+		&-2 {
+			padding-right: 2px;
+		}
+		&-4 {
+			padding-right: 4px;
+		}
+		&-6 {
+			padding-right: 6px;
+		}
+	}
+	&-all {
+		&-2 {
+			padding: 2px;
+		}
+		&-4 {
+			padding: 4px;
+		}
+		&-6 {
+			padding: 6px;
+		}
+	}
+	&-clear {
+		padding: 0px;
+		&-hard {
+			padding: 0px !important;
+		}
+	}
+}
+
+.ov {
+	&-hide {
+		overflow: hidden;
+		&-hard {
+			overflow: hidden !important;
+		}
+	}
+}
+
+.b {
+	&_top {
+		border-top: 1px solid #000;
+	}
+	&_right {
+		border-right: 1px solid #000;
+	}
+	&_bottom {
+		border-bottom: 1px solid #000;
+	}
+	&_left {
+		border-left: 1px solid #000;
+	}
+	&_s {
+		border-left: 1px solid #000;
+		border-right: 1px solid #000;
+	}
+	&_all {
+		border: 1px solid #000;
+	}
+	&_clean {
+		border: 1px solid transparent;
+		&-top { border-top: 1px solid transparent; }
+		&-right { border-right: 1px solid transparent; }
+		&-bottom { border-bottom: 1px solid transparent; }
+		&-left { border-left: 1px solid transparent; }
+	}
+	&_def {
+		border: 1px solid $base-border-color;
+		&-top {
+			border-top: 1px solid $base-border-color;
+		}
+		&-right {
+			border-right: 1px solid $base-border-color;
+		}
+		&-bottom {
+			border-bottom: 1px solid $base-border-color;
+		}
+		&-left {
+			border-left: 1px solid $base-border-color;
+		}
+		&-s {
+			border-left: 1px solid $base-border-color;
+			border-right: 1px solid $base-border-color;
+		}
+		&-all {
+			border: 1px solid $base-border-color;
+		}
+	}
+}
+
+td.fs {
+	&-10 {
+		font-size: 10pt !important;
+	}
+	&-9 {
+		font-size: 9pt !important;
+	}
+	&-8 {
+		font-size: 8pt !important;
+	}
+	&-7 {
+		font-size: 7pt !important;
+	}
+}
+
+.color {
+	&-link {
+		color: #1155cc;
+	}
+	&-blue {
+		color: #4a86e8;
+	}
+	&-browl {
+		color: #980000;
+	}
+	&-trader {
+		color: #ff9900;
+	}
+	&-black {
+		color: #000;
+	}
+	&-green {
+		color: #38761d;
+	}
+	&-muted {
+		color: #999;
+	}
+}
+
+.bold {
+	font-weight: bold;
+	&-hard {
+		font-weight: bold !important;
+	}
+}
+
+.no-wrap {
+	white-space: nowrap;
+}
+
+.editable {
+	input,
+	input:focus,
+	input:active {
+		outline: none;
+		border: 0px;
+		background-color: transparent;
+	}
+}
+.user-date-ceil {
+	
+	width: 100px;
+	min-width: 100px;
+	max-width: 100px;
+
+}
+
+$perc: 53px;
+$nums: 43px;
+
+.del {
+	&-one {
+		width: $perc !important;
+	}
+	&-two {
+		width: $nums !important;
+	}
+	&-new-deposit {
+		width: 59px;
+	}
+}
+
+.no-const {
+	&-contain {
+		text-align: center;
+		&-hard {
+			text-align: center !important;
+		}
+	}
+}
+
+
+.placeholder {
+	&-trader {
+		&::placeholder {
+			color: #ff9900;
+		}
+	}
+}

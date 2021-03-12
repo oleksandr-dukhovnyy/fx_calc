@@ -1,23 +1,23 @@
 <template>
 
-    <tr :class="{ last: showId === usersLength }">
+    <tr class="trader">
         <td class="user-date-ceil b_s p-clear-hard ov-hide">
             <Date
                 :userID="showId"
             />
         </td>
-        <td class="name b_right">
+        <td class="name b_right color-trader">
             {{ showId }}
         </td>
 
         <td class="editable fs-8">
             <input
-                class="fs-8"
+                class="fs-8 color-trader placeholder-trader"
                 placeholder="?"
                 type="text"
 
-                :value="client.depo"
-                
+                :value="trader.depo"
+
                 @change="updateDeposit"
                 @keypress="checkEnter( $event )"
 
@@ -26,45 +26,45 @@
         </td>
 
         <td class="b_right color-blue">
-            {{ client.percentFromDeposit | calcTd | number | addSymbol( '%' ) }}
+            {{ trader.percentFromDeposit  | calcTd | number | addSymbol( '%' ) }}
         </td>
 
         <td>
-            {{ client.balance | calcTd | number }}
+            {{ trader.balance  | calcTd | number }}
         </td>
 
         <td class="none">
             <span class="color-muted">
-                {{ client.balanceInPercents | calcTd | number | addSymbol( '%' ) }}
+                {{ trader.balanceInPercents | calcTd | number | addSymbol( '%' ) }}
             </span>
         </td>
 
-        <td class="none">
-            {{ client.profit | calcTd | number }}
+        <td class="none color-trader fs-8">
+            {{ trader.profit | deleteNull | toNormalNumbers }}
         </td>
 
-        <td class="none">
-            {{ client.profitInPercents | calcTd | number | addSymbol( '%' )}}
+        <td class="none color-trader fs-8">
+            {{ trader.profitInPercents | calcTd | number | addSymbol( '%' ) }}
         </td>
 
-        <td class="b_right none color-browl">
-            {{ client.traderBonus | calcTd | number }}
+        <td class="b_right none color-browl no-const-contain">
+            no = const
         </td>
 
-        <td class="fs-8 bold none">
-            {{ client.finalProfit | calcTd | number }}
+        <td class="fs-8 none color-trader">
+            {{ trader.finalProfit | calcTd | number }}
         </td>
         
-        <td class="fs-8 b_right bold none">
-            {{ client.finalProfitInPercents | calcTd | number | addSymbol( '%' ) }}
+        <td class="fs-7 b_right none no-const-contain color-trader">
+            no = const
         </td>
         
-        <td class="fs-8 none ">
-            {{ client.newCapital | calcTd | number }}
+        <td class="fs-8 none color-trader">
+            {{ trader.newCapital | calcTd | number }}
         </td>
         
         <td class="b_right none color-green">
-            {{ client.newCapitalInPercents | calcTd | number | addSymbol( '%' ) }}
+            {{ trader.newCapitalInPercents | calcTd | number | addSymbol( '%' ) }}
         </td>
     </tr>
 
@@ -72,28 +72,22 @@
 
 <script>
 
-import Date from './Date.vue';
+import { mapActions } from 'vuex';
 
-import {
-    mapActions,
-    mapGetters
-} from 'vuex';
+import Date from './Date.vue';
 
 const actionsList = [
     'updateUserDeposit',
     'updateFocusDown',
-    'regiterInputCallback',
-];
-
-const gettersList = [
-    'usersLength'
+    'regiterInputCallback'
 ];
 
 export default {
-	name: 'Client',
-    props: ['client', 'showId'],
-    components: { Date },
-    computed: mapGetters( gettersList ),
+	name: 'Trader',
+    components: {
+        Date
+    },
+    props: ['trader', 'showId'],
     methods: {
         ...mapActions( actionsList ),
         setFocus(){
@@ -101,9 +95,9 @@ export default {
         },
         updateDeposit( e ){
             if ( !isNaN( +e.target.value ) ){
-                this.updateUserDeposit( {id: this.client.id, newValue: +e.target.value} );
+                this.updateUserDeposit( {id: this.trader.id, newValue: +e.target.value} );
             } else {
-                this.updateUserDeposit( {id: this.client.id, newValue: 0} );
+                this.updateUserDeposit( {id: this.trader.id, newValue: 0} );
             }
         },
         checkEnter( e ){
@@ -124,7 +118,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    @import '../../assets/SCSS/base.scss';
+	@import '../../assets/SCSS/base.scss';
 
     td.editable {
         background-color: #f1f1f1;
@@ -132,8 +126,9 @@ export default {
     td {
         border: 1px solid $base-border-color;
         font-size: 7pt;
-        padding: 4px;
+        padding: 5px 4px 3px 4px;
         text-align: right;
+        white-space: nowrap;
     }
     td > input {
         width: 100%;
@@ -144,8 +139,16 @@ export default {
         background-color: transparent;
     }
 
+    input:focus,
+    input:active {
+        outline: none;
+        border: 0px;
+        background-color: transparent;
+    }
+
     .name {
         text-align: center;
+        width: 13px;
     }
 
     tr > td.b_right {
@@ -158,5 +161,4 @@ export default {
     .last > td {
         border-bottom: 1px solid black;
     }
-
 </style>
