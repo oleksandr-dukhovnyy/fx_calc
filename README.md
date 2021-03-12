@@ -3,6 +3,8 @@
 (vue.js, vue-cli, vuex, [element-ui](https://github.com/ElemeFE/element), pwa, webpack, scss, google spreadsheet)
 
 ---
+[live](https://my-firstcom.000webhostapp.com/)
+---
 ## Project setup
 ```
 npm install
