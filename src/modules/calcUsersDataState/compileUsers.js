@@ -20,7 +20,8 @@ export const compileUsers = ( header, userList ) => {
 				const balance = findXpersentsFromY( percentFromDeposit, newDeposit );
 				const balanceInPercents = percentageIsXofY( balance, user.depo );
 				const _profit = balance - user.depo;
-				const profitInPercents = findXpersentsFromY( percentFromDeposit, profit ) / 10;
+				// const profitInPercents = findXpersentsFromY( percentFromDeposit, profit ) / 10;
+				const profitInPercents = user.depo !== 0 ? percentageIsXofY( profit, totalDeposit ) : 0;
 				let traderBonus = 0;
 
 				if( !user.isTrader ){

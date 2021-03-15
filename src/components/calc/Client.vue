@@ -43,7 +43,7 @@
             {{ client.profit | calcTd | number }}
         </td>
 
-        <td class="none">
+        <td class="none color-muted">
             {{ client.profitInPercents | calcTd | number | addSymbol( '%' )}}
         </td>
 

@@ -21,7 +21,7 @@
 
         <tr class="header-second">
             <td colspan="2" class="b_bottom b_clean-top p_clean-top b_s fs-7">
-                <span class="color-black">vip-person.net</span>
+                <span class="color-black">vip-person</span>
             </td>
             <td class="doll color-blue">$</td>
             <td class="perc color-blue">%</td>

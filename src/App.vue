@@ -48,8 +48,6 @@ const actions = [
   'selectDateIcon'
 ];
 
-
-
 export default {
   name: 'App',
   components: {
@@ -72,14 +70,14 @@ export default {
       The cunning guys from the hosting insert their banner installation at the end of the last script.
       It turns out that you cannot remove their logo from my code.
       But, they did not take into account that it is possible to take advantage of a banal delay by means of "setTimeout".
-      Anyway, the page will not have time to be rendered to the user during this delay of 200 ms.
+      Anyway, the page will not have time to be rendered to the user during this delay of 340 ms.
     */
     setTimeout( () => {
       let imgs = document.querySelectorAll( 'img' );
       imgs.forEach( img => {
         if( img.alt === 'www.000webhost.com' ) img.remove();
       });
-    }, 200 );
+    }, 340 );
     /*
       laughter and nothing more...
     */
