@@ -21,7 +21,7 @@
 
         <tr class="header-second">
             <td colspan="2" class="b_bottom b_clean-top p_clean-top b_s fs-7">
-                <span class="color-black">vip-person</span>
+                <span class="color-black company-name">vip-person</span>
             </td>
             <td class="doll color-blue">$</td>
             <td class="perc color-blue">%</td>
@@ -73,7 +73,7 @@
             >
                 {{ header.finalProfit | calcTd | number }}
             </td>
-            <td class="del-one b_right bold">
+            <td class="del-one b_right bold color-muted">
                 {{ header.finalProfitInPercents | calcTd | number | addSymbol( '%' ) }}
             </td>
             <td class="color-green b_def-right del-two">
@@ -291,6 +291,11 @@ export default {
 
     .date {
         padding-left: 4px;
+    }
+
+    .company-name {
+        position: relative;
+        left: 3px;
     }
 
     @media ( max-device-width: 900px ) {
