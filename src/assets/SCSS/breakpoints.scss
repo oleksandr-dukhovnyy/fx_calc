@@ -1,0 +1,251 @@
+@import './mixins.scss';
+@import './media_vars.scss';
+
+// mobile sizes
+
+
+// mobile-1
+
+@mixin media-mobile-1 ( $r: 'screen', $f: $mobile-1, $t: $mobile-2 ) {
+	@include media( $f, $t, $r ){
+		@content;
+	}
+}
+@mixin media-mobile-1-p ( $r: 'screen', $f: $mobile-1, $t: $mobile-2 ) {
+	@include orintation-p (){
+		@include media( $f, $t, $r ){
+			@content;
+		}
+	}
+}
+@mixin media-mobile-1-l ( $r: 'screen', $f: $mobile-1, $t: $mobile-2 ) {
+	@include orintation-l (){
+		@include media( $f, $t, $r ){
+			@content;
+		}
+	}
+}
+
+
+// mobile-2
+
+@mixin media-mobile-2 ( $r: 'screen', $f: $mobile-2, $t: $mobile-3 ) {
+	@include media( $f, $t, $r ){
+		@content;
+	}
+}
+@mixin media-mobile-2-p ( $r: 'screen', $f: $mobile-2, $t: $mobile-3 ) {
+	@include orintation-p(){
+		@include media( $f, $t, $r ){
+			@content;
+		}
+	}
+}
+@mixin media-mobile-2-l( $r: 'screen', $f: $mobile-2, $t: $mobile-3 ) {
+	@include orintation-l(){
+		@include media( $f, $t, $r ){
+			@content;
+		}
+	}
+}
+
+
+// mobile-3
+
+@mixin media-mobile-3( $r: 'screen', $f: $mobile-3, $t: $mobile-4 ) {
+	@include media( $f, $t, $r ){
+		@content;
+	}
+}
+@mixin media-mobile-3-p( $r: 'screen', $f: $mobile-3, $t: $mobile-4 ) {
+	@include orintation-p(){
+		@include media( $f, $t, $r ){
+			@content;
+		}
+	}
+}
+@mixin media-mobile-3-l( $r: 'screen', $f: $mobile-3, $t: $mobile-4 ) {
+	@include orintation-l(){
+		@include media( $f, $t, $r ){
+			@content;
+		}
+	}
+}
+
+
+// mobile-4
+
+@mixin media-mobile-4 ( $r: 'screen', $f: $mobile-4, $t: $mobile-5 ) {
+	@include orintation (){
+		@include media( $f, $t, $r ){
+			@content;
+		}
+	}
+}
+@mixin media-mobile-4-p ( $r: 'screen', $f: $mobile-4, $t: $mobile-5 ) {
+	@include orintation-p(){
+		@include media( $f, $t, $r ){
+			@content;
+		}
+	}
+}
+@mixin media-mobile-4-l ( $r: 'screen', $f: $mobile-4, $t: $mobile-5 ) {
+	@include orintation-l(){
+		@include media( $f, $t, $r ){
+			@content;
+		}
+	}
+}
+
+
+// mobile-5
+
+@mixin media-mobile-5 ( $r: 'screen', $f: $mobile-5, $t: $mobile-6 ) {
+	@include media( $f, $t, $r ){
+		@content;
+	}
+}
+@mixin media-mobile-5-p ( $r: 'screen', $f: $mobile-5, $t: $mobile-6 ) {
+	@include orintation-p(){
+		@include media( $f, $t, $r ){
+			@content;
+		}
+	}
+}
+@mixin media-mobile-5-l( $r: 'screen', $f: $mobile-5, $t: $mobile-6 ) {
+	@include orintation-l(){
+		@include media( $f, $t, $r ){
+			@content;
+		}
+	}
+}
+
+
+// mobile-6
+
+@mixin media-mobile-6 ( $r: 'screen', $f: $mobile-6, $t: $tablet-1 ) {
+	@include media( $f, $t, $r ){
+		@content;
+	}
+}
+@mixin media-mobile-6-p( $r: 'screen', $f: $mobile-6, $t: $tablet-1 ) {
+	@include orintation-p(){
+		@include media( $f, $t, $r ){
+			@content;
+		}
+	}
+}
+@mixin media-mobile-6-l( $r: 'screen', $f: $mobile-6, $t: $tablet-1 ) {
+	@include orintation-l(){
+		@include media( $f, $t, $r ){
+			@content;
+		}
+	}
+}
+
+
+// mobile all
+
+@mixin media-mobile ( $r: 'screen', $f: $mobile-1, $t: $tablet-1 ) {
+	@include media( $t, $f, $r ){
+		@content;
+	}
+}
+
+
+// tablet sizes
+
+
+// tablet-1
+
+@mixin media-tablet-1 ( $r: 'screen', $f: $tablet-1, $t: $tablet-2 ) {
+	@include media( $f, $t, $r ){
+		@content;
+	}
+}
+@mixin media-tablet-1-p( $r: 'screen', $f: $tablet-1, $t: $tablet-2 ) {
+	@include orintation-p(){
+		@include media( $f, $t, $r ){
+			@content;
+		}
+	}
+}
+@mixin media-tablet-1-l( $r: 'screen', $f: $tablet-1, $t: $tablet-2 ) {
+	@include orintation-l(){
+		@include media( $f, $t, $r ){
+			@content;
+		}
+	}
+}
+
+
+// tablet-2
+
+@mixin media-tablet-2 ( $r: 'screen', $f: $tablet-2, $t: $tablet-3 ) {
+	@include media( $f, $t, $r ){
+		@content;
+	}
+}
+@mixin media-tablet-2-p ( $r: 'screen', $f: $tablet-2, $t: $tablet-3 ) {
+	@include orintation-p(){
+		@include media( $f, $t, $r ){
+			@content;
+		}
+	}
+}
+@mixin media-tablet-2-l ( $r: 'screen', $f: $tablet-2, $t: $tablet-3 ) {
+	@include orintation-l(){
+		@include media( $f, $t, $r ){
+			@content;
+		}
+	}
+}
+
+
+// tablet-3
+
+@mixin media-tablet-3 ( $r: 'screen', $f: $tablet-3, $t: $laptop-1 ) {
+	@include media( $f, $t, $r ){
+		@content;
+	}
+}
+@mixin media-tablet-3-p ( $r: 'screen', $f: $tablet-3, $t: $laptop-1 ) {
+	@include orintation-p(){
+		@include media( $f, $t, $r ){
+			@content;
+		}
+	}
+}
+@mixin media-tablet-3-l ( $r: 'screen', $f: $tablet-3, $t: $laptop-1 ) {
+	@include orintation-l(){
+		@include media( $f, $t, $r ){
+			@content;
+		}
+	}
+}
+
+// laptop sizes
+
+@mixin media-laptop-1 ( $r: 'screen', $f: $laptop-1, $t: $laptop-2 ) {
+	@include media( $f, $t, $r ){
+		@content;
+	}
+}
+@mixin media-laptop-2 ( $r: 'screen', $f: $laptop-2, $t: $desktop-1 ) {
+	@include media( $f, $t, $r ){
+		@content;
+	}
+}
+
+// desktop sizes
+@mixin media-desktop-1 ( $r: 'screen', $f: $desktop-1, $t: $desktop-2 ) {
+	@include media( $f, $t, $r ){
+		@content;
+	}
+}
+
+@mixin media-desktop-2 ( $r: 'screen', $f: $laptop-2, $t: 60000px ) {
+	@include media( $f, $t, $r ){
+		@content;
+	}
+}

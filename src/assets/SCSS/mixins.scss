@@ -1,0 +1,35 @@
+@mixin darkTheme(){
+    .theme-dark & {
+		@content;
+	}
+}
+
+@mixin media( $from, $to, $rule: 'screen' ) {
+	@if ($rule == 'handheld'){
+		@media handheld and (min-device-width: $from) and (max-device-width: $to) {
+			@content;
+		}
+	} @else {
+		@if ( $rule == 'screen' ){
+			@media screen and (min-device-width: $from) and (max-device-width: $to) {
+				@content;
+			}
+		} @else {
+			@media all and (min-device-width: $from) and (max-device-width: $to) {
+				@content;
+			}
+		}
+	}
+}
+
+@mixin orintation-p() {
+    .op & {
+		@content;
+	}
+}
+
+@mixin orintation-l() {
+	.ol & {
+		@content;
+	}
+}

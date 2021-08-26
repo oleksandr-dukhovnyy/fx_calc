@@ -20,16 +20,27 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+	@import '../../assets/SCSS/breakpoints.scss';
+	// @import '../../assets/SCSS/mixins.scss';
+	@import '../../assets/SCSS/themes.scss';
+
+	$link-d-color: $base-darkTheme-text-color;
+	$link-color: #000;
+	$link-text-size-mobile-horizontal: 1em;
+
 	.footer-contain {
 		position: fixed;
 		bottom: 0px;
 
-		color: black !important;
+		color: $link-color;
 		width: 100%;
 		margin: 8px 0px;
 		text-align: center;
-		opacity: 0.6;
+
+		@include darkTheme(){
+			color: $link-d-color;
+		}
 	}
 	.line {
 		position: relative;
@@ -43,17 +54,35 @@ export default {
 	.copyright {
 		margin-top: 10px;
 		font-size: 12px;
-		color: black;
+		color: $link-color;
+
+		@include darkTheme(){
+			color: $link-d-color;
+		}
+		
+		// @include media-mobile-5(){
+		// 	@include orintation-p (){
+		// 		& { font-size: 112px; }
+		// 	}
+		// }
 	}
 	a.text:active,
 	a.text:hover,
 	a.text {
-		color: black;
+		color: $link-color;
 		text-decoration: underline;
 		text-decoration: none;
+
+		@include darkTheme(){
+			color: $link-d-color;
+		}
 	}
 	a:-webkit-any-link {
-		color: black;
+		color: $link-color;
+
+		@include darkTheme(){
+			color: $link-d-color;
+		}
 	}
 
 	.email {

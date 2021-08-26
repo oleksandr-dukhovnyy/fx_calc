@@ -7,7 +7,7 @@ export default {
 		async getUsersData( {commit} ){
 			// const users = fetch( '/users' );
 
-			const clients = setDefaultValues( [], 12, 0, false );
+			const clients = setDefaultValues( [], 11, 0, false );
 			const traders = setDefaultValues( [], 1, 0, true );
 
 			const users = clients.concat( traders );

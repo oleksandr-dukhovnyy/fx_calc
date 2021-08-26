@@ -1,4 +1,27 @@
-$base-border-color: #ededed;
+@import './themes.scss';
+@import './mixins.scss';
+
+$base-border-color: #d6d6d6;
+// $base-editable-color: #f4f4f4;
+$base-editable-color: #f7f7f7;
+
+$base-group-header-color: #edf1f2;
+
+.editable-like {
+	background-color: #f7f7f7;
+
+	@include darkTheme(){
+		background-color: #3d3d3d !important;
+	}
+}
+
+.editable-bg {
+	background-color: $base-editable-color;
+
+	@include darkTheme(){
+		background-color: #3d3d3d !important;
+	}
+}
 
 input::placeholder {
   color: black;
@@ -51,50 +74,237 @@ a {
 .b {
 	&_top {
 		border-top: 1px solid #000;
+
+		@include darkTheme(){
+			border-top: 1px solid $base-darkTheme-border-color;
+		}
+
+		&-i {
+			border-top: 1px solid transparent !important;
+			@include darkTheme(){
+				border-top: 1px solid $base-darkTheme-border-color !important;
+			}
+		}
 	}
 	&_right {
 		border-right: 1px solid #000;
+
+		@include darkTheme(){
+			border-right: 1px solid $base-darkTheme-border-color;
+		}
+
+		&-i {
+			border-right: 1px solid transparent !important;
+			@include darkTheme(){
+				border-right: 1px solid $base-darkTheme-border-color !important;
+			}
+		}
 	}
 	&_bottom {
 		border-bottom: 1px solid #000;
+
+		@include darkTheme(){
+			border-bottom: 1px solid $base-darkTheme-border-color;
+		}
+
+		&-i {
+			border-bottom: 1px solid transparent !important;
+			@include darkTheme(){
+				border-bottom: 1px solid $base-darkTheme-border-color !important;
+			}
+		}
 	}
 	&_left {
 		border-left: 1px solid #000;
+
+		@include darkTheme(){
+			border-left: 1px solid $base-darkTheme-border-color;
+		}
+
+		&-i {
+			border-left: 1px solid transparent !important;
+			@include darkTheme(){
+				border-left: 1px solid $base-darkTheme-border-color !important;
+			}
+		}
 	}
 	&_s {
 		border-left: 1px solid #000;
 		border-right: 1px solid #000;
+
+		@include darkTheme(){
+			border-left: 1px solid $base-darkTheme-border-color;
+			border-right: 1px solid $base-darkTheme-border-color;
+		}
+
+		&-i {
+			border-left: 1px solid transparent !important;
+			border-right: 1px solid transparent !important;
+			@include darkTheme(){
+				border-left: 1px solid $base-darkTheme-border-color !important;
+				border-right: 1px solid $base-darkTheme-border-color !important;
+			}
+		}
 	}
 	&_all {
 		border: 1px solid #000;
+
+		&-i {
+			border: 1px solid #000 !important;
+			@include darkTheme(){
+				border: 1px solid $base-darkTheme-border-color !important;
+			}
+		}
+
+		@include darkTheme(){
+			border: 1px solid $base-darkTheme-border-color;
+		}
 	}
 	&_clean {
-		border: 1px solid transparent;
-		&-top { border-top: 1px solid transparent; }
-		&-right { border-right: 1px solid transparent; }
-		&-bottom { border-bottom: 1px solid transparent; }
-		&-left { border-left: 1px solid transparent; }
-	}
-	&_def {
 		border: 1px solid $base-border-color;
+
+		@include darkTheme(){
+			border: 1px solid $base-darkTheme-light-border-color;
+		}
+
 		&-top {
 			border-top: 1px solid $base-border-color;
+			@include darkTheme(){
+				border-top: 1px solid $base-darkTheme-light-border-color;
+			}
+
+			&-i {
+				border-top: 1px solid $base-border-color !important;
+				@include darkTheme(){
+					border-top: 1px solid $base-darkTheme-light-border-color !important;
+				}
+			}
 		}
 		&-right {
 			border-right: 1px solid $base-border-color;
+			@include darkTheme(){
+				border-right: 1px solid $base-darkTheme-light-border-color;
+			}
+
+			&-i {
+				border-right: 1px solid $base-border-color !important;
+				@include darkTheme(){
+					border-right: 1px solid $base-darkTheme-light-border-color !important;
+				}
+			}
 		}
 		&-bottom {
 			border-bottom: 1px solid $base-border-color;
+			@include darkTheme(){
+				border-bottom: 1px solid $base-darkTheme-light-border-color;
+			}
+
+			&-i {
+				border-bottom: 1px solid $base-border-color !important;
+				@include darkTheme(){
+					border-bottom: 1px solid $base-darkTheme-light-border-color !important;
+				}
+			}
 		}
 		&-left {
 			border-left: 1px solid $base-border-color;
+			@include darkTheme(){
+				border-left: 1px solid $base-darkTheme-light-border-color;
+			}
+
+			&-i {
+				border-left: 1px solid $base-border-color !important;
+				@include darkTheme(){
+					border-left: 1px solid $base-darkTheme-light-border-color !important;
+				}
+			}
+		}
+
+		&-f {
+			border: 1px solid $base-border-color !important;
+			@include darkTheme(){
+				border: 1px solid $base-darkTheme-light-border-color !important;
+			}
+
+			&-t {
+				border-top: 1px solid $base-border-color !important;
+				@include darkTheme(){
+					border-top: 1px solid $base-darkTheme-light-border-color !important;
+				}
+			}
+
+			&-l {
+				border-left: 1px solid $base-border-color !important;
+				@include darkTheme(){
+					border-left: 1px solid $base-darkTheme-light-border-color !important;
+				}
+			}
+
+			&-r {
+				border-right: 1px solid $base-border-color !important;
+				@include darkTheme(){
+					border-right: 1px solid $base-darkTheme-light-border-color !important;
+				}
+			}
+
+			&-b {
+				border-bottom: 1px solid $base-border-color !important;
+				@include darkTheme(){
+					border-bottom: 1px solid $base-darkTheme-light-border-color !important;
+				}
+			}
+		}
+	}
+	&_def {
+		border: 1px solid $base-border-color;
+
+		@include darkTheme(){
+			border: 1px solid $base-darkTheme-border-color;
+		}
+
+		&-top {
+			border-top: 1px solid $base-border-color;
+
+			@include darkTheme(){
+				border-top: 1px solid $base-darkTheme-border-color;
+			}
+		}
+		&-right {
+			border-right: 1px solid $base-border-color;
+
+			@include darkTheme(){
+				border-right: 1px solid $base-darkTheme-border-color;
+			}
+		}
+		&-bottom {
+			border-bottom: 1px solid $base-border-color;
+
+			@include darkTheme(){
+				border-bottom: 1px solid $base-darkTheme-border-color;
+			}
+		}
+		&-left {
+			border-left: 1px solid $base-border-color;
+
+			@include darkTheme(){
+				border-left: 1px solid $base-darkTheme-border-color;
+			}
 		}
 		&-s {
 			border-left: 1px solid $base-border-color;
 			border-right: 1px solid $base-border-color;
+
+			@include darkTheme(){
+				border-left: 1px solid $base-darkTheme-border-color;
+				border-right: 1px solid $base-darkTheme-border-color;
+			}
 		}
 		&-all {
 			border: 1px solid $base-border-color;
+
+			@include darkTheme(){
+				border: 1px solid $base-darkTheme-border-color;
+			}
 		}
 	}
 }
@@ -114,27 +324,107 @@ td.fs {
 	}
 }
 
+$color-mutted-w: #999;
+
 .color {
 	&-link {
 		color: #1155cc;
 	}
 	&-blue {
 		color: #4a86e8;
+
+		@include darkTheme(){
+			color: #6a9ced;
+		}
 	}
 	&-browl {
 		color: #980000;
+
+		@include darkTheme(){
+			color: #d66b6b;
+		}
 	}
 	&-trader {
 		color: #ff9900;
+
+		@include darkTheme(){
+			color: #edaa47;
+		}
 	}
 	&-black {
 		color: #000;
 	}
 	&-green {
-		color: #38761d;
+		// color: #38761d;
+		color: #448c23;
+
+		@include darkTheme(){
+			color: #6abc42;
+		}
 	}
 	&-muted {
-		color: #999;
+		color: $color-mutted-w;
+
+		@include darkTheme(){
+			color: #b2b2b2;
+		}
+
+		&-i {
+			color: $color-mutted-w !important;
+
+			@include darkTheme(){
+				color: #b2b2b2 !important;
+			}
+		}
+		
+	}
+}
+
+
+$red: #ff7f7f;
+.plcdr {
+	&-red{
+		&::-moz-placeholder {
+			color: $red !important;
+		}
+		&::-webkit-input-placeholder {
+			color: $red !important;
+		}
+		&::placeholder {
+			color: $red !important;
+		}
+
+		@include darkTheme(){
+			&::-moz-placeholder {
+				color: $red !important;
+			}
+			&::-webkit-input-placeholder {
+				color: $red !important;
+			}
+			&::placeholder {
+				color: $red !important;
+			}
+		}
+	}
+}
+
+
+$bg-group-header-d: #363f3f;
+.bg-group {
+	&-header {
+		background-color: $base-group-header-color;
+		@include darkTheme(){
+			background-color: $bg-group-header-d;
+		}
+	}
+
+	&-in {
+		&-header > * {
+			background-color: $base-group-header-color;
+			@include darkTheme(){
+				background-color: $bg-group-header-d;
+			}
+		}
 	}
 }
 
@@ -142,6 +432,25 @@ td.fs {
 	font-weight: bold;
 	&-hard {
 		font-weight: bold !important;
+
+		// @include darkTheme(){
+		// 	color: $base-darkTheme-bold-text-color !important;
+		// }
+	}
+
+	// @include darkTheme(){
+	// 	color: $base-darkTheme-bold-text-color;
+	// }
+
+	&-color {
+		&-hard {
+			@include darkTheme(){
+				color: $base-darkTheme-bold-text-color !important;
+			}
+		}
+		@include darkTheme(){
+			color: $base-darkTheme-bold-text-color;
+		}
 	}
 }
 
@@ -160,9 +469,9 @@ td.fs {
 }
 .user-date-ceil {
 	
-	width: 100px;
-	min-width: 100px;
-	max-width: 100px;
+	width: 115px;
+	min-width: 115px;
+	max-width: 115px;
 
 }
 
@@ -196,5 +505,15 @@ $nums: 43px;
 		&::placeholder {
 			color: #ff9900;
 		}
+	}
+}
+
+.selection {
+	&-on {
+		outline: 1px dotted coral;
+		background-color: rgba(255, 127, 80, 0.274);
+	}
+	&-start, &-end {
+		outline: 1px dotted coral;
 	}
 }

@@ -1,120 +1,118 @@
 <template>
+    <div class="calc-wrapper">
+        <table cellpadding="0" class="calc">
+            <tr class="header-first">
+                <td colspan="2" class="logo p_clean-bottom border-clean-top border-clean-left">
+                    <div class="logo-contain">
+                        <img src="../../assets/centerlogo.png" alt="logo">
+                        <h2 class="logo-contain_title">
+                            center
+                        </h2>
+                    </div>
+                </td>
+                <td colspan="2" class="color-blue fs-8 b_clean-bottom-i bg-group-header">Equity</td>
+                <td colspan="2" class="dark-color b_clean-bottom-i bg-group-header">Balance</td>
+                <td colspan="2" class="dark-color b_clean-bottom-i bg-group-header">Profit before 50/50</td>
+                <td class="color-browl b_clean-bottom-i bg-group-header">50%</td>
+                <td colspan="2" class="bold dark-color b_clean-bottom-i bg-group-header bold-color-hard">Profit after 50/50</td>
+                <td colspan="2" class="color-green b_clean-bottom-i bg-group-header">new Equity</td>
+            </tr>
 
-    <table cellpadding="0" class="calc">
+            <tr class="header-second">
+                <td colspan="2" class="b_bottom p_clean-top b_s fs-7 clean-b-t border-clean-left">
+                    <span class="color-black company-name">vip-person</span>
+                </td>
+                <td class="doll color-blue bg-group-header">$</td>
+                <td class="perc color-blue bg-group-header">%</td>
+                <td class="doll dark-color bg-group-header">$</td>
+                <td class="perc dark-color bg-group-header">%</td>
+                <td class="doll dark-color bg-group-header">$</td>
+                <td class="perc dark-color bg-group-header">%</td>
+                <td class="doll b_right color-browl bg-group-header">$</td>
+                <td class="doll bold bold-color bg-group-header">$</td>
+                <td class="perc bold bold-color bg-group-header">%</td>
+                <td class="doll color-green bg-group-header">$</td>
+                <td class="perc color-green bg-group-header">%</td>
+            </tr>
 
-        <tr class="header-first">
-            <td colspan="2" class="b_s logo p_clean-bottom logo-td-contain">
-                <div class="logo-contain">
-                    <img src="../../assets/centerlogo.png" alt="logo">
-                    <h2 class="logo-contain_title">
-                        center
-                    </h2>
-                </div>
-            </td>
-            <td colspan="2" class="color-blue fs-8">Equity</td>
-            <td colspan="2">Balance</td>
-            <td colspan="2">Profit before 50/50</td>
-            <td class="color-browl">50%</td>
-            <td colspan="2" class="bold">Profit after 50/50</td>
-            <td colspan="2" class="color-green">new Equity</td>
-        </tr>
+            <tr class="header-technical">
+                <td class="date b_s dark-color bg-group-header">date</td>
+                <td class="b_right fs-7 dark-color bg-group-header">№</td>
+                <td class="color-blue del-two del-three">
+                    {{ header.totalDeposit | calcTd | number }}
+                </td>
+                <td class="b_clean-left color-blue del-one fs-7 b_right">100 % = const</td>
+                <td class="editable b_def-right del-new-deposit b_clean-right-i editable-bg">
+                    <input
+                        type="text"
+                        placeholder="?"
+                        class="fs-6 dark-color plcdr-red editable-bg"
+                        :value="header.newDeposit"
 
-        <tr class="header-second">
-            <td colspan="2" class="b_bottom b_clean-top p_clean-top b_s fs-7">
-                <span class="color-black company-name">vip-person</span>
-            </td>
-            <td class="doll color-blue">$</td>
-            <td class="perc color-blue">%</td>
-            <td class="doll">$</td>
-            <td class="perc">%</td>
-            <td class="doll">$</td>
-            <td class="perc">%</td>
-            <td class="doll b_right color-browl">$</td>
-            <td class="doll bold">$</td>
-            <td class="perc bold-hard"
-            >%</td>
-            <td class="doll color-green">$</td>
-            <td class="perc color-green">%</td>
-        </tr>
+                        @change="_updateNewDeposit"
+                        @keypress="checkEnter"
 
-        <tr class="header-technical">
-            <td class="date b_s">date</td>
-            <td class="b_right fs-7">№</td>
-            <td class="color-blue del-two del-three">
-                {{ header.totalDeposit | calcTd | number }}
-            </td>
-            <td class="b_clean-left color-blue del-one fs-7 b_right">100 % = const</td>
-            <td class="editable b_def-right del-new-deposit">
-                <input
-                    type="text"
-                    placeholder="?"
-                    class="fs-6"
-                    :value="header.newDeposit"
+                        :ref="'input'"
+                    />
+                </td>
+                <td class="fs-7 del-one b_right dark-color">
+                    {{ header.newDepositInPercents | calcTd | number | addSymbol( '%' ) }}
+                </td>
+                <td class="fs-7 del-two dark-color b_clean">
+                    {{ header.profit | calcTd | number }}
+                </td>
+                <td class="fs-7 del-one b_right dark-color">
+                    {{ header.profitInPercentes | calcTd | number | addSymbol( '%' ) }}
+                </td>
+                <td class="color-browl b_right del-two">
+                    {{ header.traderBonus | calcTd | number }}
+                </td>
+                <td class="del-two dark-color b_clean bold-hard">
+                    {{ header.finalProfit | calcTd | number }}
+                </td>
+                <td class="del-one b_right b_clean-left-i bold color_mutted">
+                    {{ header.finalProfitInPercents | calcTd | number | addSymbol( '%' ) }}
+                </td>
+                <td class="color-green del-two">
+                    {{ header.newCapital | calcTd | number }}
+                </td>
+                <td class="fs-7 color-green del-one b_right">100 % = const</td>
+            </tr>
 
-                    @change="_updateNewDeposit"
-                    @keypress="checkEnter"
+            <Trader
+                v-for="( trader, i ) in traders"
+                :key="trader.id"
 
-                    :ref="'input'"
-                />
-            </td>
-            <td class="fs-7 del-one b_right">
-                {{ header.newDepositInPercents | calcTd | number | addSymbol( '%' ) }}
-            </td>
-            <td class="fs-7 b_def-right del-two">
-                {{ header.profit | calcTd | number }}
-            </td>
-            <td class="fs-7 del-one b_right">
-                {{ header.profitInPercentes | calcTd | number | addSymbol( '%' ) }}
-            </td>
-            <td class="color-browl b_right del-two">
-                {{ header.traderBonus | calcTd | number }}
-            </td>
-            <td class="b_def-right del-two bold"
-            >
-                {{ header.finalProfit | calcTd | number }}
-            </td>
-            <td class="del-one b_right bold color-muted">
-                {{ header.finalProfitInPercents | calcTd | number | addSymbol( '%' ) }}
-            </td>
-            <td class="color-green b_def-right del-two">
-                {{ header.newCapital | calcTd | number }}
-            </td>
-            <td class="fs-7 color-green del-one b_right">100 % = const</td>
-        </tr>
+                :showId="i + 1"
+                :trader="trader"
+            />
 
-        <Trader
-            v-for="( trader, i ) in traders"
-            :key="trader.id"
+            <Client
+                v-for="( client, i ) in clients"
+                :key="client.id"
 
-            :showId="i + 1"
-            :trader="trader"
-        />
+                :showId="i + 1  + traders.length"
+                :client="client"
+            />
 
-        <Client
-            v-for="( client, i ) in clients"
-            :key="client.id"
-
-            :showId="i + 1  + traders.length"
-            :client="client"
-        />
-
-        <tr class="air" v-if="false">
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-    </table>
-
+            <tr class="air" v-if="false">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+        <Controls />
+    </div>
 </template>
 
 <script>
@@ -122,6 +120,7 @@
 import { mapGetters, mapActions } from 'vuex';
 import Client from './Client.vue';
 import Trader from './Trader.vue';
+import Controls from './Controls.vue';
 
 const gettersList = [
     'traders',
@@ -139,7 +138,7 @@ const actionsList = [
 export default {
     name: 'Calc',
 	components: {
-		Client, Trader
+		Client, Trader, Controls
 	},
 	methods: {
         ...mapActions( actionsList ),
@@ -174,6 +173,15 @@ export default {
 <style lang="scss" scoped>
 
     @import '../../assets/SCSS/base.scss';
+    @import '../../assets/SCSS/mixins.scss';
+    @import '../../assets/SCSS/themes.scss';
+
+    .border-clean-top {
+        border-top: 1px solid transparent !important;
+    }
+    .border-clean-left {
+        border-left: 1px solid transparent !important;
+    }
 
     .new-total-depo {
         width: 65px;
@@ -183,10 +191,35 @@ export default {
         border: 1px solid $base-border-color;
         padding: 5px 4px 3px 4px;
         white-space: nowrap;
+
+        @include darkTheme(){
+            border: 1px solid $base-darkTheme-light-border-color;
+        }
+    }
+
+    .dark-color {
+        &-mutted {
+            @include darkTheme(){
+                color: $base-darkTheme-text-color;
+            }
+        }
+
+        @include darkTheme(){
+            color: $base-darkTheme-text-color;
+        }
+    }
+
+    .color_mutted {
+        color: $color-mutted-w !important;
+
+        @include darkTheme(){
+            color: #b2b2b2 !important;
+        }
     }
 
     td.editable {
-        background-color: #f1f1f1;
+        background-color: $base-editable-color;
+        
         input {
             width: 100%;
             height: 100%;
@@ -194,6 +227,19 @@ export default {
             outline: none;
             background-color: transparent;
             text-align: center;
+
+            @include darkTheme(){
+                background-color: $theme-dark-bg-color;
+
+                &::placeholder {
+                    color: $base-darkTheme-text-color;
+                }
+
+            }
+        }
+
+        @include darkTheme(){
+            background-color: $theme-dark-bg-color;
         }
     }
 
@@ -208,18 +254,34 @@ export default {
             border: 1px solid black;
             border-bottom: 0px solid transparent;
             text-align: center;
+
+            @include darkTheme(){
+                border: 1px solid $base-darkTheme-border-color;
+            }
         }
     }
 
     .header-second {
         .perc {
             border-right: 1px solid black;
+
+            @include darkTheme(){
+                border-right: 1px solid $base-darkTheme-border-color;
+            }
         }
         .doll {
             border-left: 1px solid black;
+
+            @include darkTheme(){
+                border-left: 1px solid $base-darkTheme-border-color;
+            }
         }
         td {
             border-bottom: 1px solid black;
+
+            @include darkTheme(){
+                border-bottom: 1px solid $base-darkTheme-border-color;
+            }
             text-align: center;
         }
     }
@@ -228,27 +290,39 @@ export default {
         text-align: center;
         font-size: 8pt;
         border-bottom: 1px solid black;
+
+        @include darkTheme(){
+            border-bottom: 1px solid $base-darkTheme-border-color;
+        }
     }
 
     table {
         border-collapse: collapse;
-        margin: 7px 0 0 7px;
+        margin: 7px 0 0;
         border: 1px solid black;
-    }
+        border-top: 1px solid transparent;
+        border-left: 1px solid transparent;
 
-    .bold {
-        font-weight: bold;
+        @include darkTheme(){
+            border: 1px solid $base-darkTheme-border-color;
+            border-top: 1px solid transparent;
+            border-left: 1px solid transparent;
+        }
     }
 
     .logo-contain {
         display: flex;
         width: max-content;
         margin: 0px auto;
+        border: 1px solid transparent;
+        position: absolute;
+        top: 0px;
+        left: 39px;
 
         &_title {
             position: relative;
-            top: 2px;
-            left: -4px;
+            // top: 2px;
+            left: -5px;
             margin-left: 4px;
             color: black;
             font-size: 9pt;
@@ -256,19 +330,35 @@ export default {
             line-height: 100%;
             display: flex;
             align-items: flex-end;
+
+            @include darkTheme(){
+                color: $base-darkTheme-text-color;
+            }
         }
         img {
             height: 21px;
             position: relative;
-            left: 1px;
-            top: 6px;
-            margin-top: -6px;
+            left: 0px;
+            top: 5px;
+            // margin-top: -6px;
         }
     }
 
     td.logo {
         height: 10px !important;
         padding-bottom: 0px;
+        position: relative;
+
+        border-bottom: 0px solid $base-group-header-color !important;
+    }
+
+    .clean-b-t {
+        // border-top: 1px solid $base-group-header-color;
+        border-top: 1px solid transparent;
+        @include darkTheme(){
+            // border-top: 1px $bg-group-header-d;
+            border-top: 1px solid transparent;
+        }
     }
 
     td.p_clean {
@@ -296,6 +386,10 @@ export default {
     .company-name {
         position: relative;
         left: 3px;
+
+        @include darkTheme(){
+            color: $base-darkTheme-text-color;
+        }
     }
 
     @media ( max-device-width: 900px ) {

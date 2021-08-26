@@ -1,16 +1,16 @@
 <template>
 
     <tr class="trader">
-        <td class="user-date-ceil b_s p-clear-hard ov-hide">
+        <td class="user-date-ceil b_clean-bottom b_s p-clear-hard ov-hide theme-clr bg-group-header">
             <Date
                 :userID="showId"
             />
         </td>
-        <td class="name b_right color-trader">
+        <td class="name b_clean-bottom b_right color-trader bg-group-header">
             {{ showId }}
         </td>
 
-        <td class="editable fs-8">
+        <td class="editable fs-8 b_clean editable-bg">
             <input
                 class="fs-8 color-trader placeholder-trader"
                 placeholder="?"
@@ -25,11 +25,11 @@
             >
         </td>
 
-        <td class="b_right color-blue">
+        <td class="color-blue b_right">
             {{ trader.percentFromDeposit  | calcTd | number | addSymbol( '%' ) }}
         </td>
 
-        <td>
+        <td class="b_clean b_left theme-clr">
             {{ trader.balance  | calcTd | number }}
         </td>
 
@@ -55,11 +55,11 @@
             {{ trader.finalProfit | calcTd | number }}
         </td>
         
-        <td class="fs-7 b_right none no-const-contain color-trader">
+        <td class="fs-7 b_right none no-const-contain color-trader bold">
             no = const
         </td>
         
-        <td class="fs-8 none color-trader">
+        <td class="fs-8 none color-trader editable-like">
             {{ trader.newCapital | calcTd | number }}
         </td>
         
@@ -119,9 +119,33 @@ export default {
 
 <style lang="scss" scoped>
 	@import '../../assets/SCSS/base.scss';
+    @import '../../assets/SCSS/mixins.scss';
+    @import '../../assets/SCSS/themes.scss';
+
+    .no-const-contain {
+        font-weight: normal !important;
+    }
+
+    .theme {
+        &-clr {
+            @include darkTheme(){
+                color: $base-darkTheme-text-color;
+            }
+
+            &-i {
+                @include darkTheme(){
+                    color: $base-darkTheme-text-color !important;
+                }
+            }
+        }
+    }
 
     td.editable {
-        background-color: #f1f1f1;
+        background-color: $base-editable-color;
+
+        @include darkTheme(){
+            background-color: $theme-dark-bg-color;
+        }
     }
     td {
         border: 1px solid $base-border-color;
@@ -129,8 +153,13 @@ export default {
         padding: 5px 4px 3px 4px;
         text-align: right;
         white-space: nowrap;
+
+        @include darkTheme(){
+            border: 1px solid $base-darkTheme-light-border-color;
+        }
     }
     td > input {
+        // padding-right: 4px;
         width: 100%;
         height: 100%;
         border: 0px;
@@ -151,14 +180,10 @@ export default {
         width: 13px;
     }
 
-    tr > td.b_right {
-        border-right: 1px solid #000;
-    }
-    tr > td.b_left {
-        border-left: 1px solid #000;
-    }
-
-    .last > td {
-        border-bottom: 1px solid black;
-    }
+    // tr > td.b_right {
+    //     border-right: 1px solid #000;
+    // }
+    // tr > td.b_left {
+    //     border-left: 1px solid #000;
+    // }
 </style>

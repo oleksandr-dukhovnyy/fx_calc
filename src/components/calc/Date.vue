@@ -5,7 +5,7 @@
   >
   <div class="input" v-show="editable || calendarFocused || showDate !== ''">
       <input
-        class="data-picker_input fs-7"
+        class="data-picker_input fs-7 theme-clr"
         type="text"
 
         :value="showDate"
@@ -152,6 +152,8 @@ export default {
 <style lang="scss" scoped>
 
 @import "../../assets/SCSS/base.scss";
+@import '../../assets/SCSS/mixins.scss';
+@import '../../assets/SCSS/themes.scss';
 
 .el-date-editor--daterange.el-input,
 .el-date-editor--daterange.el-input__inner,
@@ -203,6 +205,14 @@ export default {
 
 .picker {
   height: 0px;
+}
+
+.theme {
+  &-clr {
+    @include darkTheme(){
+      color: $base-darkTheme-text-color;
+    }
+  }
 }
 
 </style>

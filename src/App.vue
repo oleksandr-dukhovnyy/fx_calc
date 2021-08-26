@@ -1,37 +1,8 @@
 <template>
-  <div id="app">
+  <div id="app"
+    :class="theme"
+  >
     <Calc />
-    <!-- <div style="margin-top: 30px;">
-      <button
-        style="margin: 10px; padding: 5px;"
-        @click="select( 1 )"
-      >1</button>
-      <button
-        style="margin: 10px; padding: 5px;"
-        @click="select( 2 )"
-      >2</button>
-      <button
-        style="margin: 10px; padding: 5px;"
-        @click="select( 3 )"
-      >3</button>
-      <button
-        style="margin: 10px; padding: 5px;"
-        @click="select( 4 )"
-      >4</button>
-      <button
-        style="margin: 10px; padding: 5px;"
-        @click="select( 5 )"
-      >5</button>
-      <button
-        style="margin: 10px; padding: 5px;"
-        @click="select( 6 )"
-      >6</button>
-      <button
-        style="margin: 10px; padding: 5px;"
-        @click="select( 7 )"
-      >(7)</button>
-    </div> -->
-
     <Footer />
   </div>
 </template> 
@@ -41,12 +12,19 @@
 import Footer from './components/general/Footer.vue';
 import Calc from './components/calc/Calc.vue';
 import {
-  mapActions
+  mapActions,
+  mapGetters
 } from 'vuex';
 
 const actions = [
-  'selectDateIcon'
+  'selectDateIcon',
+  'setConditionField'
 ];
+
+const getters = [
+  'config',
+  'conditions'
+]
 
 export default {
   name: 'App',
@@ -56,6 +34,18 @@ export default {
   data(){
     return {
       showIcon: 1
+    }
+  },
+  computed: {
+    ...mapGetters( getters ),
+    theme(){
+      let obj = {}
+
+      obj['theme-'+this.config.theme] = true;
+      obj.op = this.conditions.orientation === 'p';
+      obj.ol = this.conditions.orientation === 'l';
+
+      return obj;
     }
   },
   methods: {
@@ -82,20 +72,53 @@ export default {
       laughter and nothing more...
     */
 
+    const setOrientation = () => {
+      this.setConditionField({
+        field: 'orientation',
+        newValue: window.orientation === 90
+          ? 'l'
+          : 'p'
+      });
+    }
+
+    window.addEventListener( 'orientationchange', setOrientation );
+    window.addEventListener( 'resize', setOrientation );
+
+    setOrientation();
   }
 }
 </script>
 
-<style>
-* {
-  margin: 0px;
-  padding: 0px;
-}
+<style lang="scss">
+@import './assets/SCSS/themes.scss';
+@import './assets/SCSS/mixins.scss';
+@import './assets/GlobalCSS/nomalize.css';
+
 #app {
   font-family: 'Roboto', sans-serif;
+
+  height: calc(100vh);
+  width: calc(100vw - 14px);
+  position: relative;
+  padding: 7px 7px 0;
+  top: 0px;
 }
+
+// .theme {
+//   &-dark {
+//     background-color: #333333;
+//   }
+//   &-light {
+//     background-color: #fff;
+//   }
+// }
+
 html {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+body {
+  position: absolute;
+  top: -7px;
 }
 </style>
