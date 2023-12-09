@@ -3,8 +3,6 @@ import App from './App.vue';
 import store from './store';
 
 import '@/assets/scss/base.scss';
-import '@/assets/GlobalCSS/normalize.css';
-
 import './registerServiceWorker';
 import './filters';
 import './vue_uses/index.js';

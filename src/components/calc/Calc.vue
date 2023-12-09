@@ -39,6 +39,7 @@
         <td
           colspan="2"
           class="b_bottom p_clean-top b_s fs-7 clean-b-t border-clean-left"
+          style="border-right: 1px solid #000;"
         >
           <span class="color-black company-name">vip-person</span>
         </td>
@@ -55,10 +56,14 @@
         <td class="perc color-green bg-group-header">%</td>
       </tr>
 
-      <tr class="header-technical">
-        <td class="date b_s dark-color bg-group-header">date</td>
-        <td class="b_right fs-7 dark-color bg-group-header">№</td>
-        <td class="color-blue del-two del-three">
+      <tr class="header-technical b_left">
+        <td class="date dark-color bg-group-header b_right">
+          <span>
+            date
+          </span>
+        </td>
+        <td class=" fs-7 dark-color bg-group-header b_right">№</td>
+        <td class="color-blue del-two del-three b_left">
           {{ header.totalDeposit | calcTd | number }}
         </td>
         <td class="b_clean-left color-blue del-one fs-7 b_right">
@@ -95,7 +100,7 @@
         <td class="del-one b_right b_clean-left-i bold color_mutted">
           {{ header.finalProfitInPercents | calcTd | number | addSymbol('%') }}
         </td>
-        <td class="color-green del-two">
+        <td class="color-green del-two b_clean-right-i">
           {{ header.newCapital | calcTd | number }}
         </td>
         <td class="fs-7 color-green del-one b_right">100 % = const</td>
@@ -114,22 +119,6 @@
         :showId="i + 1 + traders.length"
         :client="client"
       />
-
-      <tr class="air" v-if="false">
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
     </table>
 
     <Controls />
@@ -200,12 +189,12 @@ export default {
 }
 
 td {
-  border: 1px solid $base-border-color;
+  // border: 1px solid $base-border-color;
   padding: 5px 4px 3px 4px;
   white-space: nowrap;
 
   @include darkTheme() {
-    border: 1px solid $base-darkTheme-light-border-color;
+    // border: 1px solid $base-darkTheme-light-border-color;
   }
 }
 

@@ -1,7 +1,7 @@
 <template>
   <tr class="trader">
     <td
-      class="user-date-ceil b_clean-bottom b_s p-clear-hard ov-hide theme-clr bg-group-header"
+      class="user-date-ceil b_clean-bottom p-clear-hard ov-hide theme-clr bg-group-header b_left b_right"
     >
       <Date :userID="showId" />
     </td>
@@ -9,7 +9,7 @@
       {{ showId }}
     </td>
 
-    <td class="editable fs-8 b_clean editable-bg">
+    <td class="editable fs-8 b_clean editable-bg ">
       <input
         class="fs-8 color-trader placeholder-trader"
         placeholder="?"
@@ -130,13 +130,6 @@ export default {
   }
 }
 
-td.editable {
-  background-color: $base-editable-color;
-
-  @include darkTheme() {
-    background-color: $theme-dark-bg-color;
-  }
-}
 td {
   border: 1px solid $base-border-color;
   font-size: 7pt;
@@ -147,22 +140,30 @@ td {
   @include darkTheme() {
     border: 1px solid $base-darkTheme-light-border-color;
   }
-}
-td > input {
-  // padding-right: 4px;
-  width: 100%;
-  height: 100%;
-  border: 0px;
-  outline: none;
-  text-align: right;
-  background-color: transparent;
-}
 
-input:focus,
-input:active {
-  outline: none;
-  border: 0px;
-  background-color: transparent;
+  > input {
+    width: 100%;
+    height: 100%;
+    border: 0px;
+    outline: none;
+    text-align: right;
+    background-color: transparent;
+
+    &:focus,
+    &:active {
+      outline: none;
+      border: 0px;
+      background-color: transparent;
+    }
+  }
+
+  .editable {
+    background-color: $base-editable-color;
+
+    @include darkTheme() {
+      background-color: $theme-dark-bg-color;
+    }
+  }
 }
 
 .name {
@@ -170,10 +171,10 @@ input:active {
   width: 13px;
 }
 
-// tr > td.b_right {
-//     border-right: 1px solid #000;
-// }
-// tr > td.b_left {
-//     border-left: 1px solid #000;
-// }
+tr > td.b_right {
+  border-right: 1px solid #000;
+}
+tr > td.b_left {
+  border-left: 1px solid #000;
+}
 </style>

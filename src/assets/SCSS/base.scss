@@ -114,6 +114,7 @@ a {
 
     &-i {
       border-left: 1px solid transparent !important;
+
       @include darkTheme() {
         border-left: 1px solid $base-darkTheme-border-color !important;
       }
@@ -300,7 +301,7 @@ a {
   }
 }
 
-td.fs {
+.fs {
   &-10 {
     font-size: 10pt !important;
   }
@@ -416,15 +417,7 @@ td.fs {
   font-weight: bold;
   &-hard {
     font-weight: bold !important;
-
-    // @include darkTheme(){
-    // 	color: $base-darkTheme-bold-text-color !important;
-    // }
   }
-
-  // @include darkTheme(){
-  // 	color: $base-darkTheme-bold-text-color;
-  // }
 
   &-color {
     &-hard {
