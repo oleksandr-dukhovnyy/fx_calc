@@ -161,7 +161,7 @@ td {
 
   @include darkTheme() {
     background-color: $theme-dark-bg-color;
-    border: $base-darkTheme-light-border-color;
+    border: 1px solid $base-darkTheme-light-border-color;
   }
 }
 td > input {

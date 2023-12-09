@@ -29,23 +29,23 @@
       {{ trader.balance | calcTd | number }}
     </td>
 
-    <td class="none">
+    <td class="none b_clean">
       <span class="color-muted">
         {{ trader.balanceInPercents | calcTd | number | addSymbol('%') }}
       </span>
     </td>
 
-    <td class="none color-trader fs-8">
+    <td class="none color-trader fs-8 b_clean">
       {{ trader.profit | deleteNull | toNormalNumbers }}
     </td>
 
-    <td class="none color-trader fs-8">
+    <td class="none color-trader fs-8 b_clean">
       {{ trader.profitInPercents | calcTd | number | addSymbol('%') }}
     </td>
 
     <td class="b_right none color-browl no-const-contain">no = const</td>
 
-    <td class="fs-8 none color-trader">
+    <td class="fs-8 none color-trader b_clean">
       {{ trader.finalProfit | calcTd | number }}
     </td>
 
@@ -53,7 +53,7 @@
       no = const
     </td>
 
-    <td class="fs-8 none color-trader editable-like">
+    <td class="fs-8 none color-trader editable-like b_clean">
       {{ trader.newCapital | calcTd | number }}
     </td>
 
@@ -131,15 +131,15 @@ export default {
 }
 
 td {
-  border: 1px solid $base-border-color;
+  // border: 1px solid $base-border-color;
   font-size: 7pt;
   padding: 5px 4px 3px 4px;
   text-align: right;
   white-space: nowrap;
 
-  @include darkTheme() {
-    border: 1px solid $base-darkTheme-light-border-color;
-  }
+  // @include darkTheme() {
+  // border: 1px solid $base-darkTheme-light-border-color;
+  // }
 
   > input {
     width: 100%;
@@ -171,10 +171,10 @@ td {
   width: 13px;
 }
 
-tr > td.b_right {
-  border-right: 1px solid #000;
-}
-tr > td.b_left {
-  border-left: 1px solid #000;
-}
+// tr > td.b_right {
+//   border-right: 1px solid #000;
+// }
+// tr > td.b_left {
+//   border-left: 1px solid #000;
+// }
 </style>

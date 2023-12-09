@@ -43,16 +43,16 @@
         >
           <span class="color-black company-name">vip-person</span>
         </td>
-        <td class="doll color-blue bg-group-header">$</td>
+        <td class="doll color-blue bg-group-header b_clean">$</td>
         <td class="perc color-blue bg-group-header">%</td>
         <td class="doll dark-color bg-group-header">$</td>
-        <td class="perc dark-color bg-group-header">%</td>
-        <td class="doll dark-color bg-group-header">$</td>
+        <td class="perc dark-color bg-group-header b_clean">%</td>
+        <td class="doll dark-color bg-group-header b_clean">$</td>
         <td class="perc dark-color bg-group-header">%</td>
         <td class="doll b_right color-browl bg-group-header">$</td>
-        <td class="doll bold bold-color bg-group-header">$</td>
+        <td class="doll bold bold-color bg-group-header b_clean">$</td>
         <td class="perc bold bold-color bg-group-header">%</td>
-        <td class="doll color-green bg-group-header">$</td>
+        <td class="doll color-green bg-group-header b_clean">$</td>
         <td class="perc color-green bg-group-header">%</td>
       </tr>
 
@@ -193,9 +193,9 @@ td {
   padding: 5px 4px 3px 4px;
   white-space: nowrap;
 
-  @include darkTheme() {
-    // border: 1px solid $base-darkTheme-light-border-color;
-  }
+  // @include darkTheme() {
+  // border: 1px solid $base-darkTheme-light-border-color;
+  // }
 }
 
 .dark-color {
@@ -215,31 +215,6 @@ td {
 
   @include darkTheme() {
     color: #b2b2b2 !important;
-  }
-}
-
-td.editable {
-  background-color: $base-editable-color;
-
-  input {
-    width: 100%;
-    height: 100%;
-    border: 0px;
-    outline: none;
-    background-color: transparent;
-    text-align: center;
-
-    @include darkTheme() {
-      background-color: $theme-dark-bg-color;
-
-      &::placeholder {
-        color: $base-darkTheme-text-color;
-      }
-    }
-  }
-
-  @include darkTheme() {
-    background-color: $theme-dark-bg-color;
   }
 }
 
@@ -344,12 +319,48 @@ table {
   }
 }
 
-td.logo {
-  height: 10px !important;
-  padding-bottom: 0px;
-  position: relative;
+td {
+  &.logo {
+    height: 10px !important;
+    padding-bottom: 0px;
+    position: relative;
 
-  border-bottom: 0px solid $base-group-header-color !important;
+    border-bottom: 0px solid $base-group-header-color !important;
+  }
+
+  &.p_clean {
+    &-top {
+      padding-top: 0px;
+    }
+    &-bottom {
+      padding-bottom: 0px;
+    }
+  }
+
+  &.editable {
+    background-color: $base-editable-color;
+
+    input {
+      width: 100%;
+      height: 100%;
+      border: 0px;
+      outline: none;
+      background-color: transparent;
+      text-align: center;
+
+      @include darkTheme() {
+        background-color: $theme-dark-bg-color;
+
+        &::placeholder {
+          color: $base-darkTheme-text-color;
+        }
+      }
+    }
+
+    @include darkTheme() {
+      background-color: $theme-dark-bg-color;
+    }
+  }
 }
 
 .clean-b-t {
@@ -358,15 +369,6 @@ td.logo {
   @include darkTheme() {
     // border-top: 1px $bg-group-header-d;
     border-top: 1px solid transparent;
-  }
-}
-
-td.p_clean {
-  &-top {
-    padding-top: 0px;
-  }
-  &-bottom {
-    padding-bottom: 0px;
   }
 }
 

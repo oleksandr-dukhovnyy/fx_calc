@@ -86,6 +86,7 @@ a {
 
     &-i {
       border-right: 1px solid transparent !important;
+
       @include darkTheme() {
         border-right: 1px solid $base-darkTheme-border-color !important;
       }
