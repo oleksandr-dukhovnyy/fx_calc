@@ -5,11 +5,12 @@ import calcUsersDataState from '../modules/calcUsersDataState/calcUsersDataState
 import UIConfig from '../modules/UIConfig/UIConfig.js';
 import calc_selection from '../modules/calc_selection/calc_selection';
 
-Vue.use( Vuex );
+Vue.use(Vuex);
+
 export default new Vuex.Store({
-	modules: {
-		calcUsersDataState,
-		UIConfig,
-		calc_selection
-	}
+  modules: {
+    calcUsersDataState,
+    UIConfig,
+    calc_selection,
+  },
 });

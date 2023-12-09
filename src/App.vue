@@ -1,73 +1,61 @@
 <template>
-  <div id="app"
-    :class="theme"
-  >
+  <div id="app" :class="theme">
     <Calc />
     <Footer />
   </div>
-</template> 
+</template>
 
 <script>
-
 import Footer from './components/general/Footer.vue';
 import Calc from './components/calc/Calc.vue';
-import {
-  mapActions,
-  mapGetters
-} from 'vuex';
+import { mapActions, mapGetters } from 'vuex';
 
-const actions = [
-  'selectDateIcon',
-  'setConditionField'
-];
+const actions = ['selectDateIcon', 'setConditionField'];
 
-const getters = [
-  'config',
-  'conditions'
-]
+const getters = ['config', 'conditions'];
 
 export default {
   name: 'App',
   components: {
-    Calc, Footer
+    Calc,
+    Footer,
   },
-  data(){
+  data() {
     return {
-      showIcon: 1
-    }
+      showIcon: 1,
+    };
   },
   computed: {
-    ...mapGetters( getters ),
-    theme(){
-      let obj = {}
+    ...mapGetters(getters),
+    theme() {
+      let obj = {};
 
-      obj['theme-'+this.config.theme] = true;
+      obj['theme-' + this.config.theme] = true;
       obj.op = this.conditions.orientation === 'p';
       obj.ol = this.conditions.orientation === 'l';
 
       return obj;
-    }
+    },
   },
   methods: {
-    ...mapActions( actions ),
-    select( id ){
-      this.selectDateIcon( id );
-    }
+    ...mapActions(actions),
+    select(id) {
+      this.selectDateIcon(id);
+    },
   },
-  mounted(){
-
+  mounted() {
     /* 
       The cunning guys from the hosting insert their banner installation at the end of the last script.
       It turns out that you cannot remove their logo from my code.
       But, they did not take into account that it is possible to take advantage of a banal delay by means of "setTimeout".
       Anyway, the page will not have time to be rendered to the user during this delay of 340 ms.
     */
-    setTimeout( () => {
-      let imgs = document.querySelectorAll( 'img' );
-      imgs.forEach( img => {
-        if( img.alt === 'www.000webhost.com' ) img.remove();
+    setTimeout(() => {
+      let imgs = document.querySelectorAll('img');
+      imgs.forEach((img) => {
+        if (img.alt === 'www.000webhost.com') img.remove();
       });
-    }, 340 );
+    }, 340);
     /*
       laughter and nothing more...
     */
@@ -75,25 +63,19 @@ export default {
     const setOrientation = () => {
       this.setConditionField({
         field: 'orientation',
-        newValue: window.orientation === 90
-          ? 'l'
-          : 'p'
+        newValue: window.orientation === 90 ? 'l' : 'p',
       });
-    }
+    };
 
-    window.addEventListener( 'orientationchange', setOrientation );
-    window.addEventListener( 'resize', setOrientation );
+    window.addEventListener('orientationchange', setOrientation);
+    window.addEventListener('resize', setOrientation);
 
     setOrientation();
-  }
-}
+  },
+};
 </script>
 
 <style lang="scss">
-@import './assets/SCSS/themes.scss';
-@import './assets/SCSS/mixins.scss';
-@import './assets/GlobalCSS/nomalize.css';
-
 #app {
   font-family: 'Roboto', sans-serif;
 

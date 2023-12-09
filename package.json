@@ -1,10 +1,10 @@
 {
   "name": "fx_calc",
-  "version": "3.3.0",
+  "version": "3.3.1",
   "private": false,
-  "author": "Aleksandr Dukhovnyy",
+  "author": "Oleksandr Dukhovnyy <script@vip-person.net> (https://github.com/oleksandr-dukhovnyy)",
   "scripts": {
-    "serve": "vue-cli-service serve",
+    "dev": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "serveWithCustomPort": "vue-cli-service serve --port 3030"
   },
@@ -29,5 +29,9 @@
     "> 1%",
     "last 2 versions",
     "not dead"
-  ]
+  ],
+  "engines": {
+    "node": "^15.14.0",
+    "npm": "^7.10.0"
+  }
 }

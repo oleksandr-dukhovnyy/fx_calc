@@ -1,28 +1,23 @@
 <template>
   <!-- format - [dd.mm.yyyy - dd.mm.yyyy] -->
-  <div class="data-picker_contain p-clear-hard ov-hide-hard"
-    @click="edit"
-  >
-  <div class="input" v-show="editable || calendarFocused || showDate !== ''">
+  <div class="data-picker_contain p-clear-hard ov-hide-hard" @click="edit">
+    <div class="input" v-show="editable || calendarFocused || showDate !== ''">
       <input
         class="data-picker_input fs-7 theme-clr"
+        ref="input"
         type="text"
-
         :value="showDate"
-
-        @input="numberOnly( $event )"
+        @input="numberOnly($event)"
         @blur="inputBlur"
-
         @focus="openDatepicker"
         @click="openDatepicker"
-
-        @keypress="checkEnter( $event )"
-
-        :ref="'input'"
+        @keypress="checkEnter($event)"
       />
       <div class="modal-block ov-hide">
         <div class="picker fs-7">
           <DatePicker
+            v-if="showDatepicker"
+            ref="dataPicker"
             v-model="dateValue"
             type="daterange"
             :picker-options="pickerOptions"
@@ -32,41 +27,36 @@
             value-format="dd.MM.yyyy"
             popper-class="date-picker"
             unlink-panels
-
-            v-if="showDatepicker"
-
             @change="selectDate"
             @focus="calendarFocus"
             @blur="calendarBlur"
-
-            :ref="'dataPicker'"
-          />  
+          />
         </div>
       </div>
     </div>
-    <div
-      class="input"
-      v-if="!editable && !calendarFocused && showDate === ''"
-    >
-      <img class="calendar-icon" src="../../assets/icons/calendar1.png" alt="edit date">
+    <div class="input" v-if="!editable && !calendarFocused && showDate === ''">
+      <img
+        class="calendar-icon"
+        src="../../assets/icons/calendar1.png"
+        alt="edit date"
+      />
     </div>
-
   </div>
 </template>
 
 <script>
 import { mapActions } from 'vuex';
 
-import {DatePicker} from 'element-ui';
+import { DatePicker } from 'element-ui';
 import shortsCutsArr from './../../js/calc/getFastCut.js';
 
-const actions = ['regiterInputCallback', 'updateFocusDown'];
+const actions = ['registerInputCallback', 'updateFocusDown'];
 
 export default {
-  name: "Date",
+  name: 'Date',
   props: ['userID'],
   components: {
-    DatePicker
+    DatePicker,
   },
   data() {
     return {
@@ -77,84 +67,79 @@ export default {
       dateValue: '',
       editable: false,
       calendarFocused: false,
-      showDatepicker: true
+      showDatepicker: true,
     };
   },
   methods: {
-    ...mapActions( actions ),
-    checkEnter( e ){
-      if( e.keyCode === 13 ){
+    ...mapActions(actions),
+    checkEnter(e) {
+      if (e.keyCode === 13) {
         this.$refs.input.blur();
         this.editable = false;
         this.calendarBlur();
         this.showDatepicker = false;
-        setTimeout( () => {
+        setTimeout(() => {
           this.showDatepicker = true;
-          this.updateFocusDown( {id:this.userID - 1, type: 'dates'} );
+          this.updateFocusDown({ id: this.userID - 1, type: 'dates' });
         }, 0);
       }
     },
-    openDatepicker(){
+    openDatepicker() {
       this.editable = true;
       let node = this.$refs.dataPicker;
-      if( node !== undefined ){
+      if (node !== undefined) {
         node.focus();
       }
     },
-    inputBlur(){
+    inputBlur() {
       this.editable = false;
     },
-    calendarFocus(){
+    calendarFocus() {
       this.calendarFocused = true;
     },
-    calendarBlur(){
+    calendarBlur() {
       this.calendarFocused = false;
     },
-    selectDate( dateRange ){
-      if( dateRange !== null ){
-        this.showDate = `${dateRange.join( ' - ' )}`;
+    selectDate(dateRange) {
+      if (dateRange !== null) {
+        this.showDate = `${dateRange.join(' - ')}`;
       }
     },
-    edit(){
-      if( this.editable === false ){
+    edit() {
+      if (this.editable === false) {
         this.openDatepicker();
       }
-      setTimeout( () => {
+      setTimeout(() => {
         this.$refs.input.focus();
-      }, 200 );
+      }, 200);
     },
-    setFocus(){
+    setFocus() {
       this.edit();
       this.$refs.input.focus();
     },
-    numberOnly( event ){
-      this.showDate = event.target.value.replace( /(?!s)[^0-9\.\s-]/g, '' );
+    numberOnly(event) {
+      this.showDate = event.target.value.replace(/(?!s)[^0-9\.\s-]/g, '');
     },
   },
   mounted() {
-    this.regiterInputCallback({
-        id: this.userID - 1,
-        callback: this.setFocus,
-        type: 'dates'
-      });
+    this.registerInputCallback({
+      id: this.userID - 1,
+      callback: this.setFocus,
+      type: 'dates',
+    });
 
-    document.addEventListener( 'keypress', e => {
-      if( !isNaN( +e.key ) && +e.key < 7 && +e.key > 0 ){
+    document.addEventListener('keypress', (e) => {
+      if (!isNaN(+e.key) && +e.key < 7 && +e.key > 0) {
         this.showNow = +e.key;
-      } else if( +e.key === 0 ) {
+      } else if (+e.key === 0) {
         this.showNow = 1;
       }
     });
-  }
+  },
 };
 </script>
 
 <style lang="scss" scoped>
-
-@import "../../assets/SCSS/base.scss";
-@import '../../assets/SCSS/mixins.scss';
-@import '../../assets/SCSS/themes.scss';
-
 .el-date-editor--daterange.el-input,
 .el-date-editor--daterange.el-input__inner,
 .el-date-editor--timerange.el-input,
@@ -168,7 +153,7 @@ export default {
 
 .data-picker {
   &_input {
-    width: calc( 100% - 8px );
+    width: calc(100% - 8px);
     padding-left: 0 4px;
     text-align: center;
 
@@ -193,7 +178,6 @@ export default {
 }
 
 .modal-block {
-
   position: relative;
   top: -10px;
 }
@@ -209,10 +193,9 @@ export default {
 
 .theme {
   &-clr {
-    @include darkTheme(){
+    @include darkTheme() {
       color: $base-darkTheme-text-color;
     }
   }
 }
-
 </style>
