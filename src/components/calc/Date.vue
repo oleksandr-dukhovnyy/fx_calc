@@ -140,15 +140,17 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.el-date-editor--daterange.el-input,
-.el-date-editor--daterange.el-input__inner,
-.el-date-editor--timerange.el-input,
-.el-date-editor--timerange.el-input__inner {
-  position: relative;
-  opacity: 0;
-  height: 0px;
-  width: 0px;
-  left: 0px;
+.el-date-editor--daterange {
+  .el-input,
+  .el-input__inner,
+  .el-input,
+  .el-input__inner {
+    position: relative;
+    opacity: 0;
+    height: 0px;
+    width: 0px;
+    left: 0px;
+  }
 }
 
 .data-picker {
@@ -170,11 +172,11 @@ export default {
     line-height: 16px;
     height: 16px;
     text-align: center;
-  }
-}
 
-.data-picker_contain *:hover {
-  cursor: pointer;
+    *:hover {
+      cursor: pointer;
+    }
+  }
 }
 
 .modal-block {

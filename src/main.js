@@ -7,6 +7,8 @@ import './registerServiceWorker';
 import './filters';
 import './vue_uses/index.js';
 
+Vue.prototype.$email = 'script@vip-person.net';
+
 Vue.config.productionTip = false;
 Vue.config.silent = true;
 

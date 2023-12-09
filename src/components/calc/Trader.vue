@@ -131,15 +131,10 @@ export default {
 }
 
 td {
-  // border: 1px solid $base-border-color;
   font-size: 7pt;
   padding: 5px 4px 3px 4px;
   text-align: right;
   white-space: nowrap;
-
-  // @include darkTheme() {
-  // border: 1px solid $base-darkTheme-light-border-color;
-  // }
 
   > input {
     width: 100%;
@@ -170,11 +165,4 @@ td {
   text-align: center;
   width: 13px;
 }
-
-// tr > td.b_right {
-//   border-right: 1px solid #000;
-// }
-// tr > td.b_left {
-//   border-left: 1px solid #000;
-// }
 </style>

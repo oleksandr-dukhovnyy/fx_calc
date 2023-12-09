@@ -1,33 +1,31 @@
 import setDefaultValues from '../setDefaultValues.js';
 import { compileUsers } from './compileUsers.js';
-import unpdateHeader from './updateHeader.js';
+import updateHeader from './updateHeader.js';
 
 export default {
   actions: {
     async getUsersData({ commit }) {
-      // const users = fetch( '/users' );
-
       const clients = setDefaultValues([], 11, 0, false);
       const traders = setDefaultValues([], 1, 0, true);
 
       const users = clients.concat(traders);
 
-      commit('calculeTotalDeposit');
-      commit('calculeHeader');
+      commit('calculateTotalDeposit');
+      commit('calculateHeader');
       commit('setUsersArr', users);
       commit('compileUsersAndTraderBonus');
     },
     async updateNewDeposit({ commit }, newDeposit) {
       commit('setNewDeposit', newDeposit);
-      commit('calculeTotalDeposit');
-      commit('calculeHeader');
+      commit('calculateTotalDeposit');
+      commit('calculateHeader');
       commit('compileUsersAndTraderBonus');
     },
     async updateUserDeposit({ commit }, { id, newValue }) {
       commit('updateUserDeposit', { id, newValue });
-      commit('calculeTotalDeposit');
+      commit('calculateTotalDeposit');
 
-      commit('calculeHeader');
+      commit('calculateHeader');
       commit('compileUsersAndTraderBonus');
     },
 
@@ -51,7 +49,7 @@ export default {
       focus[type][id] = callback;
     },
 
-    calculeTotalDeposit(state) {
+    calculateTotalDeposit(state) {
       state.header.totalDeposit = state.users.usersArr.reduce(
         (prev, user) => user.depo + prev,
         0
@@ -71,8 +69,8 @@ export default {
     setUsersArr({ users }, newArr) {
       users.usersArr = newArr;
     },
-    calculeHeader(state) {
-      state.header = unpdateHeader(state.header);
+    calculateHeader(state) {
+      state.header = updateHeader(state.header);
     },
     compileUsersAndTraderBonus(state) {
       let { arr, traderBonus } = compileUsers(

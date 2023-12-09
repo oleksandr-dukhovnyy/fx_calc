@@ -11,23 +11,13 @@ import { mapActions } from 'vuex';
 export default {
   name: 'Controls',
   methods: {
-    ...mapActions(['toggleTheme', 'toggleSelection']),
-    copy() {
-      console.log('copy');
-    },
-    changeTheme() {
-      console.log('theme');
-    },
-  },
-  mounted() {
-    // alert( window.innerWidth + ' / ' + window.innerHeight )
+    ...mapActions(['toggleTheme' /*'toggleSelection'*/]),
   },
 };
 </script>
 
 <style lang="scss" scoped>
 section {
-  /* outline: 1px solid coral; */
   padding: 7px 7px 7px 0px;
 }
 

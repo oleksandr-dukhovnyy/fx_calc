@@ -7,18 +7,12 @@
         <a
           href="https://mail.google.com/mail/u/0/?tab=om#inbox?compose=CllgCHrgljwZRpXjNrvTSkgCLnPwzqrSdWkKwMNtFzHjCpsHVlLplGVvbjStzQRpNPbJjxRVljq"
           target="blank"
-          >feat@vip-person.net</a
+          >{{ $email }}</a
         >
       </span>
     </div>
   </div>
 </template>
-
-<script>
-export default {
-  name: 'Footer',
-};
-</script>
 
 <style lang="scss" scoped>
 $link-d-color: $base-darkTheme-text-color;
@@ -46,6 +40,7 @@ $link-text-size-mobile-horizontal: 1em;
   width: calc((97px * 2));
   margin: 0 auto;
 }
+
 .copyright {
   margin-top: 10px;
   font-size: 12px;

@@ -146,14 +146,14 @@ export default {
   }
 }
 
-td.editable {
-  background-color: $base-editable-color;
-
-  @include darkTheme() {
-    background-color: $theme-dark-bg-color;
-  }
-}
 td {
+  &.editable {
+    background-color: $base-editable-color;
+
+    @include darkTheme() {
+      background-color: $theme-dark-bg-color;
+    }
+  }
   border: 1px solid $base-border-color;
   font-size: 7pt;
   padding: 4px;
@@ -163,18 +163,19 @@ td {
     background-color: $theme-dark-bg-color;
     border: 1px solid $base-darkTheme-light-border-color;
   }
-}
-td > input {
-  width: 100%;
-  height: 100%;
-  border: 0px;
-  outline: none;
-  text-align: right;
-  background-color: transparent;
 
-  @include darkTheme() {
-    &::placeholder {
-      color: $base-darkTheme-text-color;
+  > input {
+    width: 100%;
+    height: 100%;
+    border: 0px;
+    outline: none;
+    text-align: right;
+    background-color: transparent;
+
+    @include darkTheme() {
+      &::placeholder {
+        color: $base-darkTheme-text-color;
+      }
     }
   }
 }
@@ -183,18 +184,21 @@ td > input {
   text-align: center;
 }
 
-tr > td.b_right {
-  border-right: 1px solid #000;
+tr {
+  > td.b_right {
+    border-right: 1px solid #000;
 
-  @include darkTheme() {
-    border-right: 1px solid $base-darkTheme-border-color;
+    @include darkTheme() {
+      border-right: 1px solid $base-darkTheme-border-color;
+    }
   }
-}
-tr > td.b_left {
-  border-left: 1px solid #000;
 
-  @include darkTheme() {
-    border-left: 1px solid $base-darkTheme-border-color;
+  > td.b_left {
+    border-left: 1px solid #000;
+
+    @include darkTheme() {
+      border-left: 1px solid $base-darkTheme-border-color;
+    }
   }
 }
 
@@ -205,38 +209,4 @@ tr > td.b_left {
     border-bottom: 1px solid $base-darkTheme-border-color;
   }
 }
-
-// .b {
-//     // &_s {
-//     //     @include darkTheme(){
-//     //         border-top: 1px solid $base-darkTheme-light-border-color;
-//     //         border-bottom: 1px solid $base-darkTheme-light-border-color;
-//     //     }
-//     // }
-
-//     &_l {
-//         @include darkTheme(){
-//             // border-top: 1px solid $base-darkTheme-light-border-color;
-//             // border-bottom: 1px solid $base-darkTheme-light-border-color;
-//         }
-//     }
-// }
-
-// .bc {
-//     &-t {
-//         border-top: 1px solid $base-darkTheme-light-border-color;
-//     }
-
-//     &-r {
-//         border-right: $base-darkTheme-light-border-color;
-//     }
-
-//     &-b {
-//         border-bottom: $base-darkTheme-light-border-color;
-//     }
-
-//     &-l {
-//         border-left: $base-darkTheme-light-border-color;
-//     }
-// }
 </style>

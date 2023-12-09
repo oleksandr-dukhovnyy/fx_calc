@@ -1,8 +1,7 @@
-import { percentageIsXofY } from '../calc_fields/calcule';
+import { percentageIsXofY } from '../calc_fields/calculate';
 
-const unpdateHeader = (header) => {
+const updateHeader = (header) => {
   let { totalDeposit, newDeposit } = header;
-
   let profit = newDeposit - totalDeposit;
 
   let newHeader = {
@@ -24,4 +23,4 @@ const unpdateHeader = (header) => {
   return newHeader;
 };
 
-export default unpdateHeader;
+export default updateHeader;

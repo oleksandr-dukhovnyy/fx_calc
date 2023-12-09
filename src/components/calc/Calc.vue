@@ -188,13 +188,8 @@ export default {
 }
 
 td {
-  // border: 1px solid $base-border-color;
   padding: 5px 4px 3px 4px;
   white-space: nowrap;
-
-  // @include darkTheme() {
-  // border: 1px solid $base-darkTheme-light-border-color;
-  // }
 }
 
 .dark-color {
@@ -295,7 +290,6 @@ table {
 
   &_title {
     position: relative;
-    // top: 2px;
     left: -5px;
     margin-left: 4px;
     color: black;
@@ -314,7 +308,6 @@ table {
     position: relative;
     left: 0px;
     top: 5px;
-    // margin-top: -6px;
   }
 }
 
@@ -363,10 +356,9 @@ td {
 }
 
 .clean-b-t {
-  // border-top: 1px solid $base-group-header-color;
   border-top: 1px solid transparent;
+
   @include darkTheme() {
-    // border-top: 1px $bg-group-header-d;
     border-top: 1px solid transparent;
   }
 }
