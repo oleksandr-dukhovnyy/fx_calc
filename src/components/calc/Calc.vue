@@ -39,7 +39,6 @@
         <td
           colspan="2"
           class="b_bottom p_clean-top b_s fs-7 clean-b-t border-clean-left"
-          style="border-right: 1px solid #000;"
         >
           <span class="color-black company-name">vip-person</span>
         </td>
