@@ -4,8 +4,6 @@
 
 ---
 
-## [live](https://oleksandr-dukhovnyy.github.io/fx_calc/)
-
 ## Project setup
 
 ```
