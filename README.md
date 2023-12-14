@@ -1,6 +1,6 @@
 # Calculator for trader
 
-(vue.js, vue-cli, vuex, [element-ui](https://github.com/ElemeFE/element), pwa, webpack, scss, google spreadsheet)
+(Vue.js, Vue-CLI, Vuex, [element-ui](https://github.com/ElemeFE/element), PWA, Webpack, SCSS, Google Spreadsheet)
 
 ---
 
