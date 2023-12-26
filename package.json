@@ -9,7 +9,7 @@
     "serveWithCustomPort": "vue-cli-service serve --port 3030"
   },
   "dependencies": {
-    "core-js": "^3.6.5",
+    "core-js": "^3.34.0",
     "element-ui": "^2.15.14",
     "register-service-worker": "^1.7.1",
     "vue": "^2.7.15",
